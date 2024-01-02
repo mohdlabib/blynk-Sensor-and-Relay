@@ -23,7 +23,7 @@ void setup() {
   dht.begin();
 
   Serial.begin(115200);
-  WiFi.begin("Asrama Ustad", "yarrahman1977"); // ganti "ssid" dan "password" dengan SSID dan password WiFi Anda
+  WiFi.begin("ASRAMA_USTAD@KR", ""); // ganti "ssid" dan "password" dengan SSID dan password WiFi Anda
 
   while (WiFi.status() != WL_CONNECTED) {
     delay(1000);
@@ -31,6 +31,11 @@ void setup() {
   }
 
   Serial.println("connected...yeey :)");
+
+  // show mac address for mikrotik
+  Serial.print("MAC Address: ");
+  Serial.println(WiFi.macAddress());
+
   Blynk.config(auth);
 
   if(!SPIFFS.begin()){ // inisialisasi SPIFFS
